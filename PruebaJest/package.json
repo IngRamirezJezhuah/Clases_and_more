@@ -1,0 +1,20 @@
+{
+  "name": "pruebajest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Ramirez_Alvarado_David_Jezhuah.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+
+  "jest":{
+    "testEnviroment":"node"
+  }
+  
+}
