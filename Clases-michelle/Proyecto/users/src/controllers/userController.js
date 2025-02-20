@@ -1,4 +1,5 @@
 import User from '../models/userModel.js';
+import { userCreatedEvent } from '../services/rabbitServicesEvent.js';
 
 // Expresión regular para validar el username
 const emailRegex = /^[^\s@]+@[^\s@]+\.com$/;
@@ -47,6 +48,7 @@ export const createUsers = async (req, res) => {
         });
 
         console.log(newUser);
+        await userCreatedEvent(newUser)
         return res.status(201).json({ message: 'Usuario creado', data: newUser });
 
     } catch (error) {
