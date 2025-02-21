@@ -1,12 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react'; 
 import { StyleSheet, Text, View } from 'react-native';
-import HomeScreen from './components/HomeScreen';
+import ExampleEvent from './components/ExampleEvent';
+//import HomeScreen from './components/HomeScreen';
 //import {createNativeStackNavigator} from "@react-navigation/native-stack";
-
+//<HomeScreen></HomeScreen>
 export default function App() {
   return (
-    <HomeScreen></HomeScreen>
+    <ExampleEvent></ExampleEvent>
   );
 }
 

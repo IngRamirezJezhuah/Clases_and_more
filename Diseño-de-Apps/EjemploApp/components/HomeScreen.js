@@ -1,14 +1,17 @@
 import React from 'react'; 
 import { View, Text, StyleSheet } from 'react-native'; 
 
-
 // para la parte de usar el view es el equivalente del div en el html
 function HomeScreen() {
 
 return (//return se abre con parentesis para dentro de este
     <View style={styles.container}>
-        
-        <Text style={styles.Text}>Ejemplo de componente funcional</Text>
+        <View style={styles.cabeza}>
+        <a href="details.html">Go to details</a>
+        </View>
+        <View style={styles.cabeza}>
+        <Text style={styles.Text}>Esta es la cabeza principal</Text>
+        </View>
         <View style={styles.coso}>
         <Text style={styles.texto2}>
         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠦⣄⣠⠴⠒⠒⠉⠒⠶⣄⡏⣶⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -55,14 +58,16 @@ return (//return se abre con parentesis para dentro de este
         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿⣟⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
         </Text> 
         </View>
-
+        <View style={styles.coso}>
+            <Text>moverse entre paginas</Text>
+        </View>
     </View>
-    
     );
 };
 
 const styles = StyleSheet.create({
     container: {
+        margin:0,
         flex: 1,
         backgroundColor: '#5888c1',
         alignItems: 'center',
@@ -86,6 +91,15 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 50,
         borderTopRightRadius:50,
         borderBottomLeftRadius: 50,
+        borderBottomRightRadius: 50,
+    },
+    cabeza:{
+        backgroundColor: '#A0C7F5',
+        padding: 15,
+        margin: 0,
+        borderTopLeftRadius: 50,
+        borderTopRightRadius:5,
+        borderBottomLeftRadius: 5,
         borderBottomRightRadius: 50,
     }
 });
