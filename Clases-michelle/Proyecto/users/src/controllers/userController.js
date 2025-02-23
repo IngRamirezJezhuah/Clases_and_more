@@ -1,5 +1,7 @@
 import User from '../models/userModel.js';
 import { userCreatedEvent } from '../services/rabbitServicesEvent.js';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
 // Expresión regular para validar el username
 const emailRegex = /^[^\s@]+@[^\s@]+\.com$/;
@@ -130,3 +132,65 @@ export const deleteUser = async (req, res) => {
         return res.status(500).json({ message: 'Error en el servidor' });
     }
 };
+
+export const login = async (req, res) => {
+    try {
+        const { username, password } = req.body;
+
+        // Buscar usuario por username
+        const user = await User.findOne({ where: { username } });
+        if (!user) {
+            return res.status(400).json({ message: 'Usuario no encontrado' });
+        }
+
+        // Comparar contraseña
+        const validPassword = await bcrypt.compare(password, user.password);
+        if (!validPassword) {
+            return res.status(400).json({ message: 'Contraseña incorrecta' });
+        }
+
+        // Generar token
+        const SECRET_KEY = "utd1234";  // Lo ideal es usar variables de entorno
+        const token = jwt.sign({ id: user.id, username: user.username }, SECRET_KEY, { expiresIn: "1h" });
+
+        // Enviar respuesta con el token
+        return res.status(200).json({ 
+            message: 'Inicio de sesión exitoso', 
+            token 
+        });
+
+    } catch (error) {
+        console.error("Error en el login:", error);
+        return res.status(500).json({ message: 'Error en el servidor' });
+    }
+};
+/*
+export const login = async (req, res) => {
+    try {
+        const { username, password } = req.body;
+
+        
+        const user = await User.findOne({ where: { username } });
+        if (!user) {
+            return res.status(400).json({ message: 'Usuario no encontrado' });
+        }
+
+        
+        const validPassword = await bcrypt.compare(password, user.password);
+        if (!validPassword) {
+            return res.status(400).json({ message: 'Contraseña incorrecta' });
+        }
+        const SECRET_KEY = "utd1234";
+
+
+
+        
+        const token = jwt.sign({ id: user.id, username: user.username }, SECRET_KEY, { expiresIn: "1h" });
+        return rest.status(200).json({message:'usuario actualizado', data:token});
+
+    } catch (error) {
+        console.error("Error en el login:", error);
+        return res.status(500).json({ message: 'Error en el servidor' });
+    }
+};
+*/
