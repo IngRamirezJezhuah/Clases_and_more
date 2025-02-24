@@ -7,33 +7,39 @@ const Client = sequelize.define('Client', {
         autoIncrement: true,
         primaryKey: true,
     },
-    username: {
+    nombre: {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,
     },
-    password: {
+    apellido: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    phone: {
+    correo: {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,
+        validate: {
+            isEmail: true,
+        }
     },
-    status: {
-        type: DataTypes.BOOLEAN,
+    telefono: {
+        type: DataTypes.STRING(10),
+        allowNull: false
+    },
+    direccion: {
+        type: DataTypes.STRING, // Cambiado de BOOLEAN a STRING
         allowNull: false,
-        defaultValue: true,
     },
-    creationDate: {
+    fech_nacimiento: {
         type: DataTypes.DATE,
         allowNull: false,
         defaultValue: DataTypes.NOW,
-    },
+    }
 }, {
     timestamps: false,
-    tableName: 'user',
+    tableName: 'cliente', // Nombre en plural
 });
 
 export default Client;
