@@ -2,13 +2,25 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react'; 
 import { StyleSheet, Text, View } from 'react-native';
 import Counter from './components/Counter';
-//import ExampleEvent from './components/ExampleEvent';
-//import HomeScreen from './components/HomeScreen';
+import {NavigationContainer} from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import ExampleEvent from './components/ExampleEvent';
+import HomeScreen from './components/HomeScreen';
 //import {createNativeStackNavigator} from "@react-navigation/native-stack";
 //<HomeScreen></HomeScreen>
 export default function App() {
+  const Stack = createStackNavigator();
+  /* <navigationContainer> es para contener las pantallas de navegacion como dice su nombre
+  
+  */
   return (
-    <Counter></Counter>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='HomeScreen'>
+        <Stack.Screen name='HomeScreen' component={HomeScreen}/>
+        <Stack.Screen name='ExampleEvent' component={ExampleEvent}/>
+        <Stack.Screen name='Counter' component={Counter}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 

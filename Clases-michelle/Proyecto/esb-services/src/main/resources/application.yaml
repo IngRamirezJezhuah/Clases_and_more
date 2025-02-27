@@ -1,3 +1,5 @@
 spring:
   application:
     name: 'esb-services'
+  server:
+    port: 8080  # Puerto donde tu aplicación estará escuchando

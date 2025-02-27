@@ -1,14 +1,17 @@
 import * as React from 'react';
 import { View, Text, Button, Alert, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 
-const ExampleEvent =() => {
+const ExampleEvent =({navigation}) => {
     //poner primero la funcion dentro de la funcion principal antes del retunr para que lo pueda renderizar
     const handleChangeText = (text) =>{
         Alert.alert(`Texto cambiado a ${text}`);
     }
     return (
         <View style={styles.cuerpo}>
-            
+            <Button 
+                    title='ir a Counter'
+                    onPress={()=> NavigationPreloadManager.goBack()}  //Reutilizamos las la base
+                    />
             <View style={styles.coso}>
                 <Text style={styles.texto}>Prueba Presionando los botones</Text>
             </View>

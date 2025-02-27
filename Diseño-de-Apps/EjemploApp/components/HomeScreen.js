@@ -1,11 +1,19 @@
 import React from 'react'; 
 import { View, Text, StyleSheet } from 'react-native'; 
+import { Button } from 'react-native-web';
 
 // para la parte de usar el view es el equivalente del div en el html
-function HomeScreen() {
-
+function HomeScreen( {navigation} ) {//ponemos dento de navigation ya que es lo que nos va a permitir movernos
 return (//return se abre con parentesis para dentro de este
     <View style={styles.container}>
+        <Button 
+        title='ir a Example event'
+        onPress={()=> navigation.navigate('ExampleEvent')}  //es como volver a llamar la funcion flecha asi es la base
+        />
+        <Button 
+        title='ir a Counter'
+        onPress={()=> navigation.navigate('Counter')}  //Reutilizamos las la base
+        />
         <View style={styles.cabeza}>
         <a href="details.html">Go to details</a>
         </View>

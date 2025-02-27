@@ -2,7 +2,7 @@ import React ,{ useState } from 'react';
 import { View, Text, Button, Alert, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import AntDesign from '@expo/vector-icons/AntDesign';
-const Counter =() => {
+const Counter =({navigation}) => {
     const [count, setCount] = useState(0);
 
     const increment = () =>{
