@@ -1,7 +1,6 @@
 {
   "name": "users",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -24,5 +23,6 @@
     "sequelize": "^6.37.5",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
-  }
+  },
+  "description": ""
 }

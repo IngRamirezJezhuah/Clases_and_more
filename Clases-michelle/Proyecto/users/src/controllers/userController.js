@@ -6,7 +6,7 @@ import jwt from 'jsonwebtoken';
 // Expresión regular para validar el username
 const emailRegex = /^[^\s@]+@[^\s@]+\.com$/;
 
-export const getUsers = async (req, res) => {
+export const getUsers = async ( req, res) => {
     try {
         const users = await User.findAll();
         res.status(200).json(users);
@@ -142,6 +142,7 @@ export const login = async (req, res) => {
         if (!user) {
             return res.status(400).json({ message: 'Usuario no encontrado' });
         }
+
 
         // Comparar contraseña SIN bcrypt
         if (password !== user.password) {

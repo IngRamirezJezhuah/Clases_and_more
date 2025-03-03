@@ -8,7 +8,7 @@ export const sendEmail = async (req, res) => {
     const {to, subject, text} = req.body;
     try {
         //ruta absoluta del archivo
-        const htmlPath = path.resolve('src/views/haha.html');
+        const htmlPath = path.resolve('src/views/bienvenida.html');
         // Leer el contenido del archivo HTML
         const htmlContent = fs.readFileSync(htmlPath, 'utf8');
         await transporter.sendMail({
