@@ -43,7 +43,7 @@ public class ESBcontroller {
 
         // Enviar solicitud a servicio externo
         String response = webClient.post()
-                .uri("http://localhost:3001/api/users")
+                .uri("http://localhost:3700/api/users/")
                 .bodyValue(user)
                 .retrieve()
                 .bodyToMono(String.class)

@@ -150,7 +150,7 @@ export const login = async (req, res) => {
         }
 
         // Generar token
-        const SECRET_KEY = "utd1234";  // Lo ideal es usar variables de entorno
+        const SECRET_KEY =  "aJksd9QzPl+sVdK7vYc/L4dK8HgQmPpQ5K9yApUsj3w";  // Lo ideal es usar variables de entorno
         const token = jwt.sign({ id: user.id, username: user.username }, SECRET_KEY, { expiresIn: "1h" });
 
         return res.status(200).json({ 
