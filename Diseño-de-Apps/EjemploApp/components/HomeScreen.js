@@ -1,22 +1,13 @@
 import React from 'react'; 
-import { View, Text, StyleSheet } from 'react-native'; 
-import { Button } from 'react-native-web';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'; 
+import { Button } from 'react-native';
 
 // para la parte de usar el view es el equivalente del div en el html
 function HomeScreen( {navigation} ) {//ponemos dento de navigation ya que es lo que nos va a permitir movernos
 return (//return se abre con parentesis para dentro de este
     <View style={styles.container}>
-        <Button 
-        title='ir a Example event'
-        onPress={()=> navigation.navigate('ExampleEvent')}  //es como volver a llamar la funcion flecha asi es la base
-        />
-        <Button 
-        title='ir a Counter'
-        onPress={()=> navigation.navigate('Counter')}  //Reutilizamos las la base
-        />
-        <View style={styles.cabeza}>
-        <a href="details.html">Go to details</a>
-        </View>
+        
+        
         <View style={styles.cabeza}>
         <Text style={styles.Text}>Esta es la cabeza principal</Text>
         </View>
@@ -69,6 +60,20 @@ return (//return se abre con parentesis para dentro de este
         <View style={styles.coso}>
             <Text>moverse entre paginas</Text>
         </View>
+        <TouchableOpacity onPress={()=>navigation.navigate('ExampleEvent')}>
+        <View style={styles.button}>
+            <Text>
+                ir a ExampleEvent
+            </Text>
+        </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={()=> navigation.navigate('Counter')}>
+        <View style={styles.button}>
+            <Text>
+                ir a Counter
+            </Text>
+        </View>
+        </TouchableOpacity>
     </View>
     );
 };
@@ -109,8 +114,27 @@ const styles = StyleSheet.create({
         borderTopRightRadius:5,
         borderBottomLeftRadius: 5,
         borderBottomRightRadius: 50,
+    },
+    button: {
+        borderTopLeftRadius: 50,
+        borderTopRightRadius: 9,
+        borderBottomLeftRadius: 9,
+        borderBottomRightRadius: 50,
+        backgroundColor: '#bad3ba',
+        borderRadius: 5,
+        padding: 15,
+        margin: 10,
+        paddingHorizontal: 50,
     }
 });
 
 export default HomeScreen;//esto es importante para que siempre se importe
 //por que se separa en componentes tengo el codigo mas organizado
+
+
+/*
+<Button 
+        title='ir a Counter'
+        onPress={()=> navigation.navigate('Counter')}  //Reutilizamos las la base
+        />
+*/

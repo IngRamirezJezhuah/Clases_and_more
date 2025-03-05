@@ -10,7 +10,7 @@ const ExampleEvent =({navigation}) => {
         <View style={styles.cuerpo}>
             <Button 
                     title='ir a Counter'
-                    onPress={()=> NavigationPreloadManager.goBack()}  //Reutilizamos las la base
+                    onPress={()=> navigation.goBack()}  //Reutilizamos las la base
                     />
             <View style={styles.coso}>
                 <Text style={styles.texto}>Prueba Presionando los botones</Text>
