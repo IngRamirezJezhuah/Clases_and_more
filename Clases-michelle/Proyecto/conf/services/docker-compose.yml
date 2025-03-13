@@ -1,0 +1,17 @@
+version: '3.5'
+services:
+  user-services:
+    image: user-service:0.0.1
+    container_name: users
+    ports:
+      - '3000:3000'
+    env_file:
+      - .env
+    networks:
+      - services_network
+
+networks:
+  services_network:
+    driver: bridge
+    name: services_network
+
